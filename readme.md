@@ -36,7 +36,7 @@ To get this project setup, you should:
 - Run `npm run serve` to run the server
 - Run `npm run seed` to seed the server
 - Run `npm run serve:slow` to run the server with a delay on all requests
-  - This is useful for testing loading states
+- This is useful for testing loading states
 
 ## Standard Requirements
 
@@ -78,10 +78,10 @@ Note: It's not a perfect mapping to what you're going to build, below highlights
 
 ## Showing the Correct Component
 
-- [ ] place `FunctionalDogs` inside of the `.content-container` div of the `FunctionalSection` component **using React Children**
-- [ ] place `FunctionalCreateDogForm` inside of the `.content-container` div of the `FunctionalSection` component **using React Children**
-- [ ] place `ClassDogs` inside of the `.content-container` div of the `ClassSection` component **using React Children**
-- [ ] place `ClassCreateDogForm` inside of the `.content-container` div of the `ClassSection` component **using React Children**
+- [x] place `FunctionalDogs` inside of the `.content-container` div of the `FunctionalSection` component **using React Children**
+- [x] place `FunctionalCreateDogForm` inside of the `.content-container` div of the `FunctionalSection` component **using React Children**
+- [x] place `ClassDogs` inside of the `.content-container` div of the `ClassSection` component **using React Children**
+- [x] place `ClassCreateDogForm` inside of the `.content-container` div of the `ClassSection` component **using React Children**
 
 ## Navigation
 
