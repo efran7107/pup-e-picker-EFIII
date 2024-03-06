@@ -1,19 +1,14 @@
 // you can use this type for react children if you so choose
-import { ReactNode } from 'react';
+
 import { Link } from 'react-router-dom';
-import { Dog } from '../types';
+import { TSection } from '../types';
 
 export const FunctionalSection = ({
 	children,
 	fav,
 	handleFav,
 	dogSort,
-}: {
-	children: ReactNode;
-	fav: boolean | undefined;
-	handleFav: (fav: boolean) => void;
-	dogSort: [Dog[], Dog[]];
-}) => {
+}: TSection) => {
 	const [favDogs, unFavDogs] = dogSort;
 	return (
 		<section id='main-section'>

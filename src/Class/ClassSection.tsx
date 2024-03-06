@@ -1,11 +1,12 @@
 // you can use `ReactNode` to add a type to the children prop
-import { Component, ReactNode } from 'react';
+import { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { TSection } from '../types';
 
-export class ClassSection extends Component<{
-	children: ReactNode;
-}> {
+export class ClassSection extends Component<TSection> {
 	render() {
+		const { fav, handleFav, dogSort } = this.props;
+		const [favDogs, unFavDogs] = dogSort;
 		return (
 			<section id='main-section'>
 				<div className='container-header'>
@@ -20,19 +21,23 @@ export class ClassSection extends Component<{
 					<div className='selectors'>
 						{/* This should display the favorited count */}
 						<div
-							className={`selector`}
-							onClick={() => {}}>
-							favorited ( 0 )
+							className={`selector ${fav === true ? `active` : null}`}
+							onClick={() => {
+								handleFav(true);
+							}}>
+							favorited ( {favDogs.length} )
 						</div>
 
 						{/* This should display the unfavorited count */}
 						<div
-							className={`selector`}
-							onClick={() => {}}>
-							unfavorited ( 0 )
+							className={`selector ${fav === false ? `active` : null}`}
+							onClick={() => {
+								handleFav(false);
+							}}>
+							unfavorited ( {unFavDogs.length} )
 						</div>
 						<div
-							className={`selector active`}
+							className={`selector`}
 							onClick={() => {}}>
 							create dog
 						</div>
