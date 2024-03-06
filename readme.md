@@ -65,7 +65,7 @@ To get this project setup, you should:
 
 ## Example Of Correct Code
 
-You can play around with the correct deployed version of this code using [This Deployed Version of The App](https://pup-e-picker-live-frontend.verc el.app/)
+You can play around with the correct deployed version of this code using [This Deployed Version of The App](https://pup-e-picker-live-frontend.vercel.app/)
 
 Note: It's not a perfect mapping to what you're going to build, below highlights the difference between the deployed version and what you are going to build.
 
@@ -94,13 +94,13 @@ You should use conditional rendering to show different components inside of the 
 
 ### when the `favorited` tab is active
 
-- [ ] shows the `(Functional | Class)Dogs` component
-- [ ] the dogs we can see should be ONLY THE DOGS WHERE `isFavorite` IS TRUE
+- [x] shows the `(Functional | Class)Dogs` component
+- [x] the dogs we can see should be ONLY THE DOGS WHERE `isFavorite` IS TRUE
 
 ### when the `unfavorited` tab is active
 
-- [ ] should show the `Dogs` component
-- [ ] the selected dogs should be ONLY THE DOGS WHERE `isFavorite` IS FALSE
+- [x] should show the `Dogs` component
+- [x] the selected dogs should be ONLY THE DOGS WHERE `isFavorite` IS FALSE
 
 ### when the create dog tab is active
 
