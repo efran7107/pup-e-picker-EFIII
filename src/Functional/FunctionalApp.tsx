@@ -7,16 +7,18 @@ import { Requests } from '../api';
 
 export function FunctionalApp() {
 	const [allDogs, setAllDogs] = useState<Dog[]>([]);
-	const [fav, setFav] = useState<boolean | undefined>();
+	const [fav, setFav] = useState<boolean | undefined | null>();
 
-	const sortDogs = (fav: boolean | undefined): Dog[] => {
+	const sortDogs = (fav: boolean | undefined | null): Dog[] => {
 		switch (fav) {
 			case true:
 				return allDogs.filter((dog) => dog.isFavorite);
 			case false:
 				return allDogs.filter((dog) => !dog.isFavorite);
-			default:
+			case undefined:
 				return allDogs;
+			default:
+				return [];
 		}
 	};
 

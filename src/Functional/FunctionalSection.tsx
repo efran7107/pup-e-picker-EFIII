@@ -38,8 +38,10 @@ export const FunctionalSection = ({
 						unfavorited ( {unFavDogs.length} )
 					</div>
 					<div
-						className={`selector`}
-						onClick={() => {}}>
+						className={`selector ${fav === null ? `active` : null}`}
+						onClick={() => {
+							handleFav(null);
+						}}>
 						create dog
 					</div>
 				</div>
