@@ -24,7 +24,7 @@ export const FunctionalSection = ({
 					<div
 						className={`selector ${fav === true ? `active` : null}`}
 						onClick={() => {
-							fav ? handleFav(undefined) : handleFav(true);
+							fav === true ? handleFav(undefined) : handleFav(true);
 						}}>
 						favorited ( {favDogs.length} )
 					</div>
@@ -33,7 +33,7 @@ export const FunctionalSection = ({
 					<div
 						className={`selector ${fav === false ? `active` : null}`}
 						onClick={() => {
-							fav ? handleFav(undefined) : handleFav(false);
+							fav === false ? handleFav(undefined) : handleFav(false);
 						}}>
 						unfavorited ( {unFavDogs.length} )
 					</div>
