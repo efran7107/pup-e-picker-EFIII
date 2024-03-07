@@ -113,7 +113,7 @@ You should use conditional rendering to show different components inside of the 
 - [x] Should be white when inactive
 - [x] Only zero - one tab should be active at a time
 - [x] Clicking on a tab should make it active and make all other tabs inactive
-- [Z] Clicking an Active Tab should make it inactive
+- [x] Clicking an Active Tab should make it inactive
 
 ## Interacting With the API
 
