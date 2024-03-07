@@ -38,7 +38,9 @@ export class ClassSection extends Component<TSection> {
 						</div>
 						<div
 							className={`selector`}
-							onClick={() => {}}>
+							onClick={() => {
+								handleFav(null);
+							}}>
 							create dog
 						</div>
 					</div>
