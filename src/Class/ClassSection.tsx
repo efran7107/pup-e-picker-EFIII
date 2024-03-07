@@ -23,7 +23,7 @@ export class ClassSection extends Component<TSection> {
 						<div
 							className={`selector ${fav === true ? `active` : null}`}
 							onClick={() => {
-								handleFav(true);
+								fav === true ? handleFav(undefined) : handleFav(true);
 							}}>
 							favorited ( {favDogs.length} )
 						</div>
@@ -32,14 +32,14 @@ export class ClassSection extends Component<TSection> {
 						<div
 							className={`selector ${fav === false ? `active` : null}`}
 							onClick={() => {
-								handleFav(false);
+								fav === false ? handleFav(undefined) : handleFav(false);
 							}}>
 							unfavorited ( {unFavDogs.length} )
 						</div>
 						<div
-							className={`selector`}
+							className={`selector ${fav === null ? `active` : null}`}
 							onClick={() => {
-								handleFav(null);
+								fav === null ? handleFav(undefined) : handleFav(null);
 							}}>
 							create dog
 						</div>
