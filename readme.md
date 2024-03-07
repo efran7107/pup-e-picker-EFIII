@@ -113,11 +113,11 @@ You should use conditional rendering to show different components inside of the 
 - [x] Should be white when inactive
 - [x] Only zero - one tab should be active at a time
 - [x] Clicking on a tab should make it active and make all other tabs inactive
-- [ ] Clicking an Active Tab should make it inactive
+- [Z] Clicking an Active Tab should make it inactive
 
 ## Interacting With the API
 
-- [ ] When the component loads, you should fetch all of the dogs from the server and store them in state
+- [x] When the component loads, you should fetch all of the dogs from the server and store them in state
 - [ ] When you click on a gray heart, it should turn red and the dog's `isFavorite` property should be set to `true` in the database
 - [ ] When you click on a red heart, it should turn gray and the dog's `isFavorite` property should be set to `false` in the database
 - [ ] When you click on the trash icon, it should delete the dog from the database and show the updated list of dogs
