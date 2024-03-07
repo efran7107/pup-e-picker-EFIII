@@ -22,8 +22,10 @@ export class ClassApp extends Component {
 				return this.state.allDogs.filter((dog) => dog.isFavorite);
 			case false:
 				return this.state.allDogs.filter((dog) => !dog.isFavorite);
-			default:
+			case undefined:
 				return this.state.allDogs;
+			default:
+				return [];
 		}
 	};
 

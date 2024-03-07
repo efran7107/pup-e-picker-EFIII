@@ -11,7 +11,7 @@ export type Dog = {
 
 export type TSection = {
 	children: ReactNode;
-	fav: boolean | undefined;
-	handleFav: (fav: boolean) => void;
+	fav: boolean | undefined | null;
+	handleFav: (fav: boolean | null | undefined) => void;
 	dogSort: [Dog[], Dog[]];
 };

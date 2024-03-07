@@ -104,15 +104,15 @@ You should use conditional rendering to show different components inside of the 
 
 ### when the create dog tab is active
 
-- [ ] should show the `(Functional | Class)CreateDogForm` component
-- [ ] should not show the `Dogs` component
+- [x] should show the `(Functional | Class)CreateDogForm` component
+- [x] should not show the `Dogs` component
 
 ### Tabs
 
-- [ ] Should be black when active (You can add the `active` class to it to style an active tab correctly)
-- [ ] Should be white when inactive
-- [ ] Only zero - one tab should be active at a time
-- [ ] Clicking on a tab should make it active and make all other tabs inactive
+- [x] Should be black when active (You can add the `active` class to it to style an active tab correctly)
+- [x] Should be white when inactive
+- [x] Only zero - one tab should be active at a time
+- [x] Clicking on a tab should make it active and make all other tabs inactive
 - [ ] Clicking an Active Tab should make it inactive
 
 ## Interacting With the API
