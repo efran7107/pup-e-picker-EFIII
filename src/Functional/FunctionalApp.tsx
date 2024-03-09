@@ -4,23 +4,11 @@ import { FunctionalDogs } from './FunctionalDogs';
 import { FunctionalSection } from './FunctionalSection';
 import { Dog } from '../types';
 import { Requests } from '../api';
+import { isFavorite, returnFav } from '../functions';
 
 export function FunctionalApp() {
 	const [allDogs, setAllDogs] = useState<Dog[]>([]);
 	const [fav, setFav] = useState<boolean | undefined | null>();
-
-	const sortDogs = (fav: boolean | undefined | null): Dog[] => {
-		switch (fav) {
-			case true:
-				return allDogs.filter((dog) => dog.isFavorite);
-			case false:
-				return allDogs.filter((dog) => !dog.isFavorite);
-			case undefined:
-				return allDogs;
-			default:
-				return [];
-		}
-	};
 
 	const fetchDogs = () => {
 		return Requests.getAllDogs().then((dogs) => {
@@ -42,8 +30,8 @@ export function FunctionalApp() {
 			<FunctionalSection
 				fav={fav}
 				handleFav={(fav) => setFav(fav)}
-				dogSort={[sortDogs(true), sortDogs(false)]}>
-				<FunctionalDogs allDogs={sortDogs(fav)} />
+				dogSort={[isFavorite(allDogs, true), isFavorite(allDogs, false)]}>
+				<FunctionalDogs allDogs={returnFav(fav, allDogs)} />
 				<FunctionalCreateDogForm />
 			</FunctionalSection>
 		</div>
