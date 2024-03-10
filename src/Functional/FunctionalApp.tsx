@@ -43,9 +43,9 @@ export function FunctionalApp() {
 				/>
 				<FunctionalCreateDogForm
 					loading={loading}
-					handleNewDog={(dog) => {
+					handleNewDog={(dogs) => {
 						isLoading(true);
-						dog
+						dogs
 							.then(setDogs)
 							.then(() => toast.success('Dog Created'))
 							.finally(() => isLoading(false));

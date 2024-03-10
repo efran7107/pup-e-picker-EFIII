@@ -2,33 +2,41 @@ import { Component } from 'react';
 import { ClassSection } from './ClassSection';
 import { ClassDogs } from './ClassDogs';
 import { ClassCreateDogForm } from './ClassCreateDogForm';
-import { Requests } from '../api';
 import { Dog } from '../types';
-import { isFavorite, returnFav } from '../functions';
+import { fetchDogs, isFavorite, returnFav } from '../functions';
+import toast from 'react-hot-toast';
 
 type State = {
 	allDogs: Dog[];
-	fav: boolean | undefined;
+	fav: boolean | undefined | null;
+	loading: boolean;
 };
 
 export class ClassApp extends Component {
 	state: State = {
 		allDogs: [],
 		fav: undefined,
+		loading: false,
 	};
 
-	fetchDogs = () => {
-		return Requests.getAllDogs().then((dogs) => {
-			this.setState({ allDogs: dogs });
+	setDogs = () => {
+		fetchDogs().then((dogs) => this.setState({ allDogs: dogs }));
+	};
+
+	handleDogs = (dogs: Promise<Response>) => {
+		this.setState({ loading: true });
+		dogs.then(this.setDogs).finally(() => {
+			this.setState({ loading: false });
 		});
 	};
 
 	componentDidMount(): void {
-		this.fetchDogs();
+		this.setDogs();
 	}
 
 	render() {
-		const { fav, allDogs } = this.state;
+		const { fav, allDogs, loading } = this.state;
+
 		return (
 			<div
 				className='App'
@@ -40,8 +48,35 @@ export class ClassApp extends Component {
 					fav={fav}
 					handleFav={(fav) => this.setState({ fav: fav })}
 					dogSort={[isFavorite(allDogs, true), isFavorite(allDogs, false)]}>
-					<ClassDogs allDogs={returnFav(fav, allDogs)} />
-					<ClassCreateDogForm />
+					<ClassDogs
+						allDogs={returnFav(fav, allDogs)}
+						loading={loading}
+						handleDogs={(dogs) => {
+							this.handleDogs(dogs);
+						}}
+						deleteDog={(dog) => {
+							this.setState({ loading: true });
+							dog
+								.then(this.setDogs)
+								.then(() => {
+									toast.success('Dog Created');
+								})
+								.finally(() => {
+									this.setState({ loading: false });
+								});
+						}}
+					/>
+					<ClassCreateDogForm
+						loading={loading}
+						handleNewDog={(dogs) => {
+							this.setState({ loading: true });
+							dogs
+								.then(this.setDogs)
+								.then(() => toast.success('Dog Created'))
+								.finally(() => this.setState({ loading: false }));
+							this.setState({ fav: undefined });
+						}}
+					/>
 				</ClassSection>
 			</div>
 		);
