@@ -4,6 +4,7 @@ import { ClassDogs } from './ClassDogs';
 import { ClassCreateDogForm } from './ClassCreateDogForm';
 import { Requests } from '../api';
 import { Dog } from '../types';
+import { isFavorite, returnFav } from '../functions';
 
 type State = {
 	allDogs: Dog[];
@@ -14,19 +15,6 @@ export class ClassApp extends Component {
 	state: State = {
 		allDogs: [],
 		fav: undefined,
-	};
-
-	sortDog = (fav: boolean | undefined): Dog[] => {
-		switch (fav) {
-			case true:
-				return this.state.allDogs.filter((dog) => dog.isFavorite);
-			case false:
-				return this.state.allDogs.filter((dog) => !dog.isFavorite);
-			case undefined:
-				return this.state.allDogs;
-			default:
-				return [];
-		}
 	};
 
 	fetchDogs = () => {
@@ -40,7 +28,7 @@ export class ClassApp extends Component {
 	}
 
 	render() {
-		const { fav } = this.state;
+		const { fav, allDogs } = this.state;
 		return (
 			<div
 				className='App'
@@ -51,8 +39,8 @@ export class ClassApp extends Component {
 				<ClassSection
 					fav={fav}
 					handleFav={(fav) => this.setState({ fav: fav })}
-					dogSort={[this.sortDog(true), this.sortDog(false)]}>
-					<ClassDogs allDogs={this.sortDog(fav)} />
+					dogSort={[isFavorite(allDogs, true), isFavorite(allDogs, false)]}>
+					<ClassDogs allDogs={returnFav(fav, allDogs)} />
 					<ClassCreateDogForm />
 				</ClassSection>
 			</div>
