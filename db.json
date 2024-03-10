@@ -1,135 +1,142 @@
 {
   "dogs": [
     {
-      "name": "Nannie",
-      "image": "/assets/corgi.png",
-      "description": "inquisitively oof calm acupuncture whereas equatorial gosh effectuate",
-      "isFavorite": true,
+      "name": "Gregorio",
+      "image": "/assets/cowardly.png",
+      "description": "crowded daintily recline scrutinize ick ugh lest",
+      "isFavorite": false,
       "id": 0
     },
     {
-      "name": "Brycen",
-      "image": "/assets/chihuahua.avif",
-      "description": "bottleful after baste obliterate putrid",
-      "isFavorite": true,
+      "name": "Clint",
+      "image": "/assets/corgi.png",
+      "description": "rarely ew quaint phew mysteriously whether whoever",
+      "isFavorite": false,
       "id": 1
     },
     {
-      "name": "Orrin",
-      "image": "/assets/chihuahua.avif",
-      "description": "provided after despite till watcher",
+      "name": "Kelsie",
+      "image": "/assets/blue-heeler.png",
+      "description": "or misdirect detest for regarding fake gosh excepting",
+      "isFavorite": false,
+      "id": 2
+    },
+    {
+      "name": "Lysanne",
+      "image": "/assets/dalmation.png",
+      "description": "kennel boo disadvantage notwithstanding past cup graffiti yet",
       "isFavorite": true,
       "id": 3
     },
     {
-      "name": "Lucie",
-      "image": "/assets/dalmation.png",
-      "description": "psst justly browsing all solid",
-      "isFavorite": false,
+      "name": "Justen",
+      "image": "/assets/chihuahua.avif",
+      "description": "memorable after yearningly after sans spokesman semester pish",
+      "isFavorite": true,
       "id": 4
     },
     {
-      "name": "Luella",
-      "image": "/assets/blue-heeler.png",
-      "description": "smoothly idolized naturally yum that till phew",
+      "name": "Marta",
+      "image": "/assets/corgi.png",
+      "description": "whether through psst searchingly wan",
       "isFavorite": false,
       "id": 5
     },
     {
-      "name": "Shannon",
-      "image": "/assets/cowardly.png",
-      "description": "invite insistent brr truthfully athwart bah straddle assassination",
-      "isFavorite": false,
+      "name": "Sean",
+      "image": "/assets/corgi.png",
+      "description": "duh scarily fob than disregard abaft veranda minus",
+      "isFavorite": true,
       "id": 6
     },
     {
-      "name": "Imani",
-      "image": "/assets/dalmation.png",
-      "description": "rattle excluding skean on recovery",
-      "isFavorite": true,
+      "name": "Betsy",
+      "image": "/assets/corgi.png",
+      "description": "fall quarrelsomely plump monkey monthly although profane filthy",
+      "isFavorite": false,
       "id": 7
     },
     {
-      "name": "Danyka",
-      "image": "/assets/chihuahua.avif",
-      "description": "chillax daily sally however lest",
+      "name": "Jeanie",
+      "image": "/assets/boxer.png",
+      "description": "slump questionably placebo accurate notwithstanding",
       "isFavorite": true,
       "id": 8
     },
     {
-      "name": "Toby",
+      "name": "Gracie",
       "image": "/assets/blue-heeler.png",
-      "description": "wildly forenenst rightfully till how",
-      "isFavorite": false,
+      "description": "gadzooks worth ick less overlooked",
+      "isFavorite": true,
       "id": 9
     },
     {
-      "name": "Tyson",
+      "name": "Deja",
       "image": "/assets/blue-heeler.png",
-      "description": "inequality maroon however nimble segregate",
+      "description": "bah oddball revert deceivingly yum",
       "isFavorite": false,
       "id": 10
     },
     {
-      "name": "Eulalia",
-      "image": "/assets/boxer.png",
-      "description": "foolish rarely despite fooey frantically definitive jubilant dislike",
+      "name": "Madelynn",
+      "image": "/assets/dalmation.png",
+      "description": "lest anti meanwhile padlock academics academic finally",
       "isFavorite": true,
       "id": 11
     },
     {
-      "name": "Lawson",
-      "image": "/assets/cowardly.png",
-      "description": "uniform but wet cruelly knowledgeable",
-      "isFavorite": true,
+      "name": "Mac",
+      "image": "/assets/corgi.png",
+      "description": "with psst but why attain",
+      "isFavorite": false,
       "id": 12
     },
     {
-      "name": "Cooper",
-      "image": "/assets/dalmation.png",
-      "description": "furthermore when righteously when handlebar breathe considering so",
-      "isFavorite": false,
+      "name": "Breana",
+      "image": "/assets/cowardly.png",
+      "description": "jaggedly an opposition jealously fooey",
+      "isFavorite": true,
       "id": 13
     },
     {
-      "name": "Melody",
-      "image": "/assets/chihuahua.avif",
-      "description": "demotivate above hmph exploit hatbox quaver these",
+      "name": "Felton",
+      "image": "/assets/blue-heeler.png",
+      "description": "offbeat even late suddenly yippee extra-small conceal",
       "isFavorite": false,
       "id": 14
     },
     {
-      "name": "Linda",
+      "name": "Ernestina",
       "image": "/assets/blue-heeler.png",
-      "description": "instead angelic kissingly easily apropos tempting crease",
+      "description": "cruelly whoa vivaciously frightfully ruffle adventurously health yahoo",
       "isFavorite": true,
       "id": 15
     },
     {
-      "name": "Dakota",
-      "image": "/assets/chihuahua.avif",
-      "description": "salad hopelessly loyally gah whoever",
-      "isFavorite": true,
+      "name": "Halle",
+      "image": "/assets/corgi.png",
+      "description": "cone versus counterpart pleasing impractical abnormally student",
+      "isFavorite": false,
       "id": 16
     },
     {
-      "name": "Stewart",
-      "image": "/assets/blue-heeler.png",
-      "description": "bad whoever obedient modulo investigation daily yum",
-      "isFavorite": true,
+      "name": "Jenifer",
+      "image": "/assets/corgi.png",
+      "description": "energetic curriculum without pfft satisfied vainly how easily",
+      "isFavorite": false,
       "id": 17
     },
     {
-      "name": "Melyssa",
+      "name": "Jasen",
       "image": "/assets/cowardly.png",
-      "description": "drat considering youthfully unfortunately whereas aside underline jealously",
+      "description": "after hungry inside ferryboat wood acidly whether for",
       "isFavorite": false,
       "id": 18
     },
     {
-      "name": "Korey",
-      "image": "/assets/chihuahua.avif",
-      "description": "loosely at bossy surprisingly friendly for well-lit seldom",
+      "name": "Fabian",
+      "image": "/assets/dalmation.png",
+      "description": "dehumanize irk huzzah during imaginary",
       "isFavorite": false,
       "id": 19
     }

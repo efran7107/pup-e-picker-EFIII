@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { dogPictures } from "../dog-pictures";
-import { Dog } from "../types";
+import { createDog } from "../functions";
 
 // use this as your default selected image
 const defaultSelectedImage = dogPictures.BlueHeeler;
@@ -8,7 +8,7 @@ const defaultSelectedImage = dogPictures.BlueHeeler;
 export const FunctionalCreateDogForm = ({
   handleNewDog,
 }: {
-  handleNewDog: (dog: Omit<Dog, "id">) => void;
+  handleNewDog: (dogs: Promise<Response>) => void;
 }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -20,12 +20,17 @@ export const FunctionalCreateDogForm = ({
       id="create-dog-form"
       onSubmit={(e) => {
         e.preventDefault();
-        handleNewDog({
-          name: name,
-          image: image,
-          description: description,
-          isFavorite: false,
-        });
+        handleNewDog(
+          createDog({
+            name: name,
+            image: image,
+            description: description,
+            isFavorite: false,
+          })
+        );
+        setName("");
+        setDescription("");
+        setImage(defaultSelectedImage);
       }}
     >
       <h4>Create a New Dog</h4>
@@ -49,7 +54,7 @@ export const FunctionalCreateDogForm = ({
       <label htmlFor="picture">Select an Image</label>
       <select
         id=""
-        defaultValue={image}
+        value={image}
         onChange={(e) => setImage(e.currentTarget.value)}
       >
         {Object.entries(dogPictures).map(([label, pictureValue]) => {

@@ -34,3 +34,7 @@ export const updateDogs = (id: number, fav: boolean) => {
 export const deleteDogs = (id: number) => {
   return Requests.deleteDog(id);
 };
+
+export const createDog = (dog: Omit<Dog, "id">) => {
+  return Requests.postDog(dog);
+};
