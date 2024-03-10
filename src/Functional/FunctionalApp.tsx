@@ -1,39 +1,40 @@
-import { useEffect, useState } from 'react';
-import { FunctionalCreateDogForm } from './FunctionalCreateDogForm';
-import { FunctionalDogs } from './FunctionalDogs';
-import { FunctionalSection } from './FunctionalSection';
-import { Dog } from '../types';
-import { Requests } from '../api';
-import { isFavorite, returnFav } from '../functions';
+import { useEffect, useState } from "react";
+import { FunctionalCreateDogForm } from "./FunctionalCreateDogForm";
+import { FunctionalDogs } from "./FunctionalDogs";
+import { FunctionalSection } from "./FunctionalSection";
+import { Dog } from "../types";
+import { fetchDogs, isFavorite } from "../functions";
 
 export function FunctionalApp() {
-	const [allDogs, setAllDogs] = useState<Dog[]>([]);
-	const [fav, setFav] = useState<boolean | undefined | null>();
+  const [allDogs, setAllDogs] = useState<Dog[]>([]);
+  const [fav, setFav] = useState<boolean | undefined | null>();
 
-	const fetchDogs = () => {
-		return Requests.getAllDogs().then((dogs) => {
-			setAllDogs(dogs);
-		});
-	};
+  const setDogs = () => {
+    fetchDogs().then(setAllDogs);
+  };
 
-	useEffect(() => {
-		fetchDogs();
-	}, []);
+  useEffect(() => {
+    setDogs();
+  });
 
-	return (
-		<div
-			className='App'
-			style={{ backgroundColor: 'skyblue' }}>
-			<header>
-				<h1>pup-e-picker (Functional)</h1>
-			</header>
-			<FunctionalSection
-				fav={fav}
-				handleFav={(fav) => setFav(fav)}
-				dogSort={[isFavorite(allDogs, true), isFavorite(allDogs, false)]}>
-				<FunctionalDogs allDogs={returnFav(fav, allDogs)} />
-				<FunctionalCreateDogForm />
-			</FunctionalSection>
-		</div>
-	);
+  return (
+    <div className="App" style={{ backgroundColor: "skyblue" }}>
+      <header>
+        <h1>pup-e-picker (Functional)</h1>
+      </header>
+      <FunctionalSection
+        fav={fav}
+        handleFav={setFav}
+        dogSort={[isFavorite(allDogs, true), isFavorite(allDogs, false)]}
+      >
+        <FunctionalDogs
+          allDogs={allDogs}
+          fav={fav}
+          handleDogs={(dogs) => dogs.then(() => setDogs())}
+          deleteDog={(dogs) => dogs.then(() => setDogs())}
+        />
+        <FunctionalCreateDogForm handleNewDog={(dog) => {}} />
+      </FunctionalSection>
+    </div>
+  );
 }

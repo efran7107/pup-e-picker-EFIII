@@ -11,15 +11,8 @@
       "name": "Brycen",
       "image": "/assets/chihuahua.avif",
       "description": "bottleful after baste obliterate putrid",
-      "isFavorite": false,
-      "id": 1
-    },
-    {
-      "name": "Thurman",
-      "image": "/assets/boxer.png",
-      "description": "subtle though jade indeed before island aha",
       "isFavorite": true,
-      "id": 2
+      "id": 1
     },
     {
       "name": "Orrin",
@@ -46,7 +39,7 @@
       "name": "Shannon",
       "image": "/assets/cowardly.png",
       "description": "invite insistent brr truthfully athwart bah straddle assassination",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 6
     },
     {
