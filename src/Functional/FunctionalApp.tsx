@@ -3,7 +3,7 @@ import { FunctionalCreateDogForm } from "./FunctionalCreateDogForm";
 import { FunctionalDogs } from "./FunctionalDogs";
 import { FunctionalSection } from "./FunctionalSection";
 import { Dog } from "../types";
-import { fetchDogs, isFavorite } from "../functions";
+import { fetchDogs, isFavorite, returnFav } from "../functions";
 
 export function FunctionalApp() {
   const [allDogs, setAllDogs] = useState<Dog[]>([]);
@@ -28,12 +28,15 @@ export function FunctionalApp() {
         dogSort={[isFavorite(allDogs, true), isFavorite(allDogs, false)]}
       >
         <FunctionalDogs
-          allDogs={allDogs}
-          fav={fav}
+          allDogs={returnFav(fav, allDogs)}
           handleDogs={(dogs) => dogs.then(() => setDogs())}
           deleteDog={(dogs) => dogs.then(() => setDogs())}
         />
-        <FunctionalCreateDogForm handleNewDog={(dog) => {}} />
+        <FunctionalCreateDogForm
+          handleNewDog={(dog) => {
+            dog.then(setDogs);
+          }}
+        />
       </FunctionalSection>
     </div>
   );
