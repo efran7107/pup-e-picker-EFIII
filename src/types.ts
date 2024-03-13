@@ -15,3 +15,5 @@ export type TSection = {
 	handleFav: (fav: boolean | null | undefined) => void;
 	dogSort: [Dog[], Dog[]];
 };
+
+export type ActiveTab = 'favorite' | 'unfovorite' | 'create-dog' | 'all-dogs';
