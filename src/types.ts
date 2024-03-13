@@ -13,8 +13,8 @@ export type TSection = {
   children: ReactNode;
   tab: ActiveTab;
   handleTab: (fav: ActiveTab) => void;
-  favDogs: Dog[];
-  unFavDogs: Dog[];
+  favDogsLen: number;
+  unFavDogsLen: number;
 };
 
 export type ActiveTab = "favorite" | "unfavorite" | "create-dog" | "all-dogs";
