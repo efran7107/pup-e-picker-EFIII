@@ -1,30 +1,17 @@
 import { Requests } from "./api";
-import { Dog } from "./types";
+import { ActiveTab, Dog } from "./types";
 
-export const isFavorite = (dogs: Dog[], fav: boolean | undefined): Dog[] => {
-  return fav
-    ? dogs.filter((dog) => dog.isFavorite)
-    : dogs.filter((dog) => !dog.isFavorite);
-};
-
-export const returnFav = (
-  fav: boolean | undefined | null,
-  allDogs: Dog[]
-): Dog[] => {
-  switch (fav) {
-    case true:
-      return isFavorite(allDogs, fav);
-    case false:
-      return isFavorite(allDogs, fav);
-    case undefined:
-      return allDogs;
-    default:
+export const getTabDogs = (dogs: Dog[], tab: ActiveTab): Dog[] => {
+  switch (tab) {
+    case "favorite":
+      return dogs.filter((dog) => dog.isFavorite);
+    case "unfavorite":
+      return dogs.filter((dog) => !dog.isFavorite);
+    case "all-dogs":
+      return dogs;
+    case "create-dog":
       return [];
   }
-};
-
-export const fetchDogs = () => {
-  return Requests.getAllDogs().then((dogs) => dogs);
 };
 
 export const updateDogs = (id: number, fav: boolean) => {
