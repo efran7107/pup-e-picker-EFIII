@@ -1,12 +1,12 @@
 import { Component } from 'react';
 import { dogPictures } from '../dog-pictures';
-import { createDog } from '../functions';
 import { Dog } from '../types';
+import { Requests } from '../api';
 
 const defaultSelectedImage = dogPictures.BlueHeeler;
 
 export class ClassCreateDogForm extends Component<{
-	loading: boolean;
+	isLoading: boolean;
 	handleNewDog: (dogs: Promise<Response>) => void;
 }> {
 	state: Omit<Dog, 'id'> = {
@@ -17,7 +17,7 @@ export class ClassCreateDogForm extends Component<{
 	};
 
 	render() {
-		const { loading, handleNewDog } = this.props;
+		const { isLoading, handleNewDog } = this.props;
 		const { name, description, image } = this.state;
 		return (
 			<form
@@ -25,7 +25,7 @@ export class ClassCreateDogForm extends Component<{
 				id='create-dog-form'
 				onSubmit={(e) => {
 					e.preventDefault();
-					handleNewDog(createDog(this.state));
+					handleNewDog(Requests.postDog(this.state));
 					this.setState({
 						name: '',
 						description: '',
@@ -39,7 +39,7 @@ export class ClassCreateDogForm extends Component<{
 					onChange={(e) => {
 						this.setState({ name: e.currentTarget.value });
 					}}
-					disabled={loading}
+					disabled={isLoading}
 					value={name}
 				/>
 				<label htmlFor='description'>Dog Description</label>
@@ -51,7 +51,7 @@ export class ClassCreateDogForm extends Component<{
 					onChange={(e) => {
 						this.setState({ description: e.currentTarget.value });
 					}}
-					disabled={loading}
+					disabled={isLoading}
 					value={description}
 				/>
 				<label htmlFor='picture'>Select an Image</label>
@@ -74,7 +74,7 @@ export class ClassCreateDogForm extends Component<{
 				<input
 					type='submit'
 					value='submit'
-					disabled={false}
+					disabled={isLoading}
 				/>
 			</form>
 		);

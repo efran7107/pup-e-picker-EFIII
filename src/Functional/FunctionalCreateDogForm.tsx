@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { dogPictures } from '../dog-pictures';
-import { createDog } from '../functions';
+import { Requests } from '../api';
 
 // use this as your default selected image
 const defaultSelectedImage = dogPictures.BlueHeeler;
 
 export const FunctionalCreateDogForm = ({
-	loading,
+	isLoading,
 	handleNewDog,
 }: {
-	loading: boolean;
+	isLoading: boolean;
 	handleNewDog: (dogs: Promise<Response>) => void;
 }) => {
 	const [name, setName] = useState('');
@@ -23,7 +23,7 @@ export const FunctionalCreateDogForm = ({
 			onSubmit={(e) => {
 				e.preventDefault();
 				handleNewDog(
-					createDog({
+					Requests.postDog({
 						name: name,
 						image: image,
 						description: description,
@@ -38,7 +38,7 @@ export const FunctionalCreateDogForm = ({
 			<label htmlFor='name'>Dog Name</label>
 			<input
 				type='text'
-				disabled={loading}
+				disabled={isLoading}
 				value={name}
 				onChange={(e) => setName(e.currentTarget.value)}
 			/>
@@ -48,7 +48,7 @@ export const FunctionalCreateDogForm = ({
 				id=''
 				cols={80}
 				rows={10}
-				disabled={loading}
+				disabled={isLoading}
 				value={description}
 				onChange={(e) => setDescription(e.currentTarget.value)}></textarea>
 			<label htmlFor='picture'>Select an Image</label>
@@ -56,7 +56,7 @@ export const FunctionalCreateDogForm = ({
 				id=''
 				value={image}
 				onChange={(e) => setImage(e.currentTarget.value)}
-				disabled={loading}>
+				disabled={isLoading}>
 				{Object.entries(dogPictures).map(([label, pictureValue]) => {
 					return (
 						<option

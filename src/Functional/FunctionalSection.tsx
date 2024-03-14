@@ -5,11 +5,11 @@ import { TSection } from '../types';
 
 export const FunctionalSection = ({
 	children,
-	fav,
-	handleFav,
-	dogSort,
+	tab,
+	handleTab,
+	favDogsLen,
+	unFavDogsLen,
 }: TSection) => {
-	const [favDogs, unFavDogs] = dogSort;
 	return (
 		<section id='main-section'>
 			<div className='container-header'>
@@ -22,25 +22,25 @@ export const FunctionalSection = ({
 				<div className='selectors'>
 					{/* This should display the favorited count */}
 					<div
-						className={`selector ${fav === true ? `active` : null}`}
+						className={`selector ${tab === 'favorite' ? `active` : null}`}
 						onClick={() => {
-							fav === true ? handleFav(undefined) : handleFav(true);
+							tab === 'favorite' ? handleTab('all-dogs') : handleTab('favorite');
 						}}>
-						favorited ( {favDogs.length} )
+						favorited ( {favDogsLen} )
 					</div>
 
 					{/* This should display the unfavorited count */}
 					<div
-						className={`selector ${fav === false ? `active` : null}`}
+						className={`selector ${tab === 'unfavorite' ? `active` : null}`}
 						onClick={() => {
-							fav === false ? handleFav(undefined) : handleFav(false);
+							tab === 'unfavorite' ? handleTab('all-dogs') : handleTab('unfavorite');
 						}}>
-						unfavorited ( {unFavDogs.length} )
+						unfavorited ( {unFavDogsLen} )
 					</div>
 					<div
-						className={`selector ${fav === null ? `active` : null}`}
+						className={`selector ${tab === null ? `active` : null}`}
 						onClick={() => {
-							fav === null ? handleFav(undefined) : handleFav(null);
+							tab === 'create-dog' ? handleTab('all-dogs') : handleTab('create-dog');
 						}}>
 						create dog
 					</div>
