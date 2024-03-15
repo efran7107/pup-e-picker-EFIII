@@ -1,11 +1,23 @@
 // you can use `ReactNode` to add a type to the children prop
-import { Component } from 'react';
+import { Component, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { TSection } from '../types';
+import { ActiveTab } from '../types';
+
+type TSection = {
+	children: ReactNode;
+	tab: ActiveTab;
+	setTab: (fav: ActiveTab) => void;
+	favDogsLen: number;
+	unFavDogsLen: number;
+};
 
 export class ClassSection extends Component<TSection> {
+	handleTabChange = (newTab: ActiveTab) => {
+		this.props.setTab(this.props.tab === newTab ? 'all-dogs' : newTab);
+	};
+
 	render() {
-		const { tab, handleTab, favDogsLen, unFavDogsLen, children } = this.props;
+		const { tab, favDogsLen, unFavDogsLen, children } = this.props;
 		return (
 			<section id='main-section'>
 				<div className='container-header'>
@@ -22,7 +34,7 @@ export class ClassSection extends Component<TSection> {
 						<div
 							className={`selector ${tab === 'favorite' ? `active` : null}`}
 							onClick={() => {
-								tab === 'favorite' ? handleTab('all-dogs') : handleTab('favorite');
+								this.handleTabChange('favorite');
 							}}>
 							favorited ( {favDogsLen} )
 						</div>
@@ -31,14 +43,14 @@ export class ClassSection extends Component<TSection> {
 						<div
 							className={`selector ${tab === 'unfavorite' ? `active` : null}`}
 							onClick={() => {
-								tab === 'unfavorite' ? handleTab('all-dogs') : handleTab('unfavorite');
+								this.handleTabChange('unfavorite');
 							}}>
 							unfavorited ( {unFavDogsLen} )
 						</div>
 						<div
 							className={`selector ${tab === 'create-dog' ? `active` : null}`}
 							onClick={() => {
-								tab === 'create-dog' ? handleTab('all-dogs') : handleTab('create-dog');
+								this.handleTabChange('create-dog');
 							}}>
 							create dog
 						</div>

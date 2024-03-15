@@ -13,7 +13,7 @@ type State = {
 	isLoading: boolean;
 };
 
-export class ClassApp extends Component {
+export class ClassApp extends Component<Record<string, never>, State> {
 	state: State = {
 		allDogs: [],
 		tab: 'all-dogs',
@@ -27,9 +27,9 @@ export class ClassApp extends Component {
 	};
 
 	handleDogs = (dogs: Promise<Response>) => {
-		this.setState({ loading: true });
+		this.setState({ isLoading: true });
 		dogs.then(this.setDogs).finally(() => {
-			this.setState({ loading: false });
+			this.setState({ isLoading: false });
 		});
 	};
 
@@ -49,7 +49,7 @@ export class ClassApp extends Component {
 				</header>
 				<ClassSection
 					tab={tab}
-					handleTab={(tab) => this.setState({ tab: tab })}
+					setTab={(tab) => this.setState({ tab: tab })}
 					favDogsLen={getTabDogs(allDogs, 'favorite').length}
 					unFavDogsLen={getTabDogs(allDogs, 'unfavorite').length}>
 					<ClassDogs
@@ -59,7 +59,7 @@ export class ClassApp extends Component {
 							this.handleDogs(dogs);
 						}}
 					/>
-					{tab === 'create-dog' ? (
+					{tab === 'create-dog' && (
 						<ClassCreateDogForm
 							isLoading={isLoading}
 							handleNewDog={(dogs) => {
@@ -71,7 +71,7 @@ export class ClassApp extends Component {
 								this.setState({ tab: 'all-dogs' });
 							}}
 						/>
-					) : null}
+					)}
 				</ClassSection>
 			</div>
 		);

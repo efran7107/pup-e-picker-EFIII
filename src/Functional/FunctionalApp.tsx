@@ -34,7 +34,7 @@ export function FunctionalApp() {
 			</header>
 			<FunctionalSection
 				tab={tab}
-				handleTab={setTab}
+				setTab={setTab}
 				favDogsLen={getTabDogs(allDogs, 'favorite').length}
 				unFavDogsLen={getTabDogs(allDogs, 'unfavorite').length}>
 				<FunctionalDogs
@@ -42,9 +42,9 @@ export function FunctionalApp() {
 					allDogs={getTabDogs(allDogs, tab)}
 					handleDogs={handleChangeDogs}
 				/>
-				{tab === 'create-dog' ? (
+				{tab === 'create-dog' && (
 					<FunctionalCreateDogForm
-						loading={isLoading}
+						isLoading={isLoading}
 						handleNewDog={(dogs) => {
 							setIsLoading(true);
 							dogs
@@ -54,7 +54,7 @@ export function FunctionalApp() {
 							setTab('all-dogs');
 						}}
 					/>
-				) : null}
+				)}
 			</FunctionalSection>
 		</div>
 	);
