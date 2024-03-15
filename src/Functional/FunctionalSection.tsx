@@ -1,15 +1,27 @@
 // you can use this type for react children if you so choose
 
 import { Link } from 'react-router-dom';
-import { TSection } from '../types';
+import { ActiveTab } from '../types';
+import { ReactNode } from 'react';
+
+type TSection = {
+	children: ReactNode;
+	tab: ActiveTab;
+	setTab: (tab: ActiveTab) => void;
+	favDogsLen: number;
+	unFavDogsLen: number;
+};
 
 export const FunctionalSection = ({
 	children,
 	tab,
-	handleTab,
+	setTab,
 	favDogsLen,
 	unFavDogsLen,
 }: TSection) => {
+	const handleTabChange = (newTab: ActiveTab) => {
+		setTab(tab === newTab ? 'all-dogs' : newTab);
+	};
 	return (
 		<section id='main-section'>
 			<div className='container-header'>
@@ -24,7 +36,7 @@ export const FunctionalSection = ({
 					<div
 						className={`selector ${tab === 'favorite' ? `active` : null}`}
 						onClick={() => {
-							tab === 'favorite' ? handleTab('all-dogs') : handleTab('favorite');
+							handleTabChange('favorite');
 						}}>
 						favorited ( {favDogsLen} )
 					</div>
@@ -33,14 +45,14 @@ export const FunctionalSection = ({
 					<div
 						className={`selector ${tab === 'unfavorite' ? `active` : null}`}
 						onClick={() => {
-							tab === 'unfavorite' ? handleTab('all-dogs') : handleTab('unfavorite');
+							handleTabChange('unfavorite');
 						}}>
 						unfavorited ( {unFavDogsLen} )
 					</div>
 					<div
 						className={`selector ${tab === null ? `active` : null}`}
 						onClick={() => {
-							tab === 'create-dog' ? handleTab('all-dogs') : handleTab('create-dog');
+							handleTabChange('create-dog');
 						}}>
 						create dog
 					</div>
